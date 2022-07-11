@@ -1,7 +1,8 @@
 from django.db import models
-
+from flax_id.django.fields import FlaxId
 # Create your models here.
 class Video(models.Model):
+  id = FlaxId(primary_key=True)
   title = models.CharField(max_length=255)
   category = models.ForeignKey('Category',on_delete=models.SET_NULL, null=True)
   youtube_link = models.URLField(max_length=255)
